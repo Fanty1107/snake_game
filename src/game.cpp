@@ -7,6 +7,8 @@ Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "teste") {}
 void Game::GameLoop(Player *snake) {
   while (!window.ShouldClose()) {
     float deltaTime = window.GetFrameTime();
+    snake->moveSnake(deltaTime);
+
     while (window.Drawing()) {
       UpdateDraw(snake);
     }
