@@ -1,6 +1,5 @@
 #pragma once
 #include "entities.hpp"
-#include "raylib-cpp.hpp"
 
 class Game {
 private:

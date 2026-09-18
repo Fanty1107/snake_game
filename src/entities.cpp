@@ -1,10 +1,24 @@
 #include "../include/entities.hpp"
+#include "raylib.h"
 
 Player::Player() : snake_shape(0.0f, 0.0f, Snake::width, Snake::height) {}
+
 void Player::drawSnake() { snake_shape.Draw(Snake::color); }
 
-void Player::moveSnake(float deltaTime) {
-  if (raylib::Keyboard::IsKeyDown(KEY_D)) {
-    snake_shape.x += Snake::speed * deltaTime;
+void Player::moveSnake(float *deltaTime) {
+  if (direction == SNAKE_DIRECTIONS::RIGHT) {
+    snake_shape.x += Snake::speed * (*deltaTime);
   }
+  if (direction == SNAKE_DIRECTIONS::LEFT) {
+    snake_shape.x -= Snake::speed * (*deltaTime);
+  }
+  if (direction == SNAKE_DIRECTIONS::DOWN) {
+    snake_shape.y += Snake::speed * (*deltaTime);
+  }
+  if (direction == SNAKE_DIRECTIONS::UP) {
+    snake_shape.y -= Snake::speed * (*deltaTime);
+  }
+}
+void Player::changeDirection(SNAKE_DIRECTIONS directionEnum) {
+  direction = directionEnum;
 }
