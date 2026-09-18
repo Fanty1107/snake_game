@@ -1,5 +1,6 @@
 #include "../include/entities.hpp"
 #include "raylib.h"
+// TODO: Inicialize all the entities and improve drawSnake()
 
 Player::Player() : snake_shape(0.0f, 0.0f, Snake::width, Snake::height) {}
 

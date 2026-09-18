@@ -1,10 +1,8 @@
 #include "../include/game.hpp"
 #include "../include/config.hpp"
 #include "../include/entities.hpp"
-#include "Keyboard.hpp"
-#include "raylib.h"
+// TODO: Make this code more readble
 Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "Snake Game") {}
-
 void Game::GameLoop(Player *snake) {
   while (!window.ShouldClose()) {
     float deltaTime = window.GetFrameTime();

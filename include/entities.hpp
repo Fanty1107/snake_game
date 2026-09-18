@@ -1,6 +1,9 @@
 #pragma once
 #include "Color.hpp"
 #include "raylib-cpp.hpp"
+// TODO: Implementar colisões
+// NOTE: e uma nova entidade,seria a maça que a cobra comeria para crescer,
+// cada parte nova da cobra vai ser um Rectangle igual o corpo principal
 
 enum SNAKE_DIRECTIONS {
   RIGHT = 0,
