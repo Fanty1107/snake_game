@@ -1,4 +1,5 @@
 #include "../include/entities.hpp"
+#include "../include/config.hpp"
 #include "raylib.h"
 // TODO: Inicialize all the entities and improve drawSnake()
 
@@ -23,3 +24,8 @@ void Player::moveSnake(float *deltaTime) {
 void Player::changeDirection(SNAKE_DIRECTIONS directionEnum) {
   direction = directionEnum;
 }
+// -----------------------------------------------
+Fruit::Fruit()
+    : fruit_shape((float)config::SCREEN_W / 2, (float)config::SCREEN_H / 2,
+                  Apple::width, Apple::height) {}
+void Fruit::drawFruit() { fruit_shape.Draw(Apple::color); }

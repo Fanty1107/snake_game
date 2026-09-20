@@ -1,5 +1,6 @@
 #pragma once
 #include "Color.hpp"
+#include "Rectangle.hpp"
 #include "raylib-cpp.hpp"
 // TODO: Implementar colisões
 // NOTE: e uma nova entidade,seria a maça que a cobra comeria para crescer,
@@ -18,6 +19,11 @@ constexpr float height = 50.0f;
 constexpr raylib::Color color{GREEN};
 constexpr float speed = 500.0f;
 } // namespace Snake
+namespace Apple {
+constexpr float width = 20.0f;
+constexpr float height = 35.0f;
+constexpr raylib::Color color{RED};
+} // namespace Apple
 class Player {
 private:
   raylib::Rectangle snake_shape;
@@ -28,4 +34,12 @@ public:
   void drawSnake();
   void moveSnake(float *dT);
   void changeDirection(SNAKE_DIRECTIONS direction);
+};
+class Fruit {
+private:
+  raylib::Rectangle fruit_shape;
+
+public:
+  Fruit();
+  void drawFruit();
 };

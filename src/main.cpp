@@ -2,6 +2,7 @@
 int main() {
   Game game;
   Player snake;
-  game.GameLoop(&snake);
+  Fruit apple;
+  game.GameLoop(&snake, &apple);
   return 0;
 }

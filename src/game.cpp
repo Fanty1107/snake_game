@@ -2,8 +2,11 @@
 #include "../include/config.hpp"
 #include "../include/entities.hpp"
 // TODO: Make this code more readble
-Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "Snake Game") {}
-void Game::GameLoop(Player *snake) {
+Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "Snake Game") {
+  window.SetConfigFlags(FLAG_WINDOW_RESIZABLE);
+  window.SetPosition(100, 100);
+}
+void Game::GameLoop(Player *snake, Fruit *apple) {
   while (!window.ShouldClose()) {
     float deltaTime = window.GetFrameTime();
     snake->moveSnake(&deltaTime);
@@ -24,11 +27,12 @@ void Game::GameLoop(Player *snake) {
       snake->changeDirection(SNAKE_DIRECTIONS::DOWN);
     }
     while (window.Drawing()) {
-      UpdateDraw(snake);
+      UpdateDraw(snake, apple);
     }
   }
 }
-void Game::UpdateDraw(Player *snake) {
+void Game::UpdateDraw(Player *snake, Fruit *apple) {
   window.ClearBackground(GRAY);
   snake->drawSnake();
+  apple->drawFruit();
 }
