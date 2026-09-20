@@ -1,7 +1,6 @@
 #include "../include/entities.hpp"
 #include "../include/config.hpp"
-#include "raylib.h"
-// TODO: Inicialize all the entities and improve drawSnake()
+#include "Rectangle.hpp"
 
 Player::Player() : snake_shape(0.0f, 0.0f, Snake::width, Snake::height) {}
 
@@ -24,8 +23,16 @@ void Player::moveSnake(float *deltaTime) {
 void Player::changeDirection(SNAKE_DIRECTIONS directionEnum) {
   direction = directionEnum;
 }
+raylib::Rectangle Player::getSnakeShape() { return snake_shape; }
+
 // -----------------------------------------------
 Fruit::Fruit()
     : fruit_shape((float)config::SCREEN_W / 2, (float)config::SCREEN_H / 2,
                   Apple::width, Apple::height) {}
 void Fruit::drawFruit() { fruit_shape.Draw(Apple::color); }
+
+void Fruit::detectCollision(Player *snake) {
+  if (fruit_shape.CheckCollision(snake->getSnakeShape())) {
+    // TODO: make a logic for collision
+  }
+}

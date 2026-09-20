@@ -8,5 +8,6 @@ private:
 public:
   Game();
   void GameLoop(Player *snake, Fruit *apple);
+  void inputHandiling(Player *snake);
   void UpdateDraw(Player *snake, Fruit *apple);
 };
