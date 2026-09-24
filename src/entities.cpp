@@ -1,6 +1,7 @@
 #include "../include/entities.hpp"
 #include "../include/config.hpp"
 #include "Rectangle.hpp"
+#include <iostream>
 
 Player::Player() : snake_shape(0.0f, 0.0f, Snake::width, Snake::height) {}
 
@@ -33,6 +34,6 @@ void Fruit::drawFruit() { fruit_shape.Draw(Apple::color); }
 
 void Fruit::detectCollision(Player *snake) {
   if (fruit_shape.CheckCollision(snake->getSnakeShape())) {
-    // TODO: make a logic for collision
+    std::cout << "detection" << std::endl;
   }
 }
