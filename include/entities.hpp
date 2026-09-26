@@ -2,9 +2,7 @@
 #include "Color.hpp"
 #include "Rectangle.hpp"
 #include "raylib-cpp.hpp"
-// TODO: Implementar colisões
-// NOTE: e uma nova entidade,seria a maça que a cobra comeria para crescer,
-// cada parte nova da cobra vai ser um Rectangle igual o corpo principal
+#include <vector>
 
 enum SNAKE_DIRECTIONS {
   RIGHT = 0,
@@ -26,15 +24,20 @@ constexpr raylib::Color color{RED};
 } // namespace Apple
 class Player {
 private:
-  raylib::Rectangle snake_shape;
-  int direction = 0;
+  std::vector<raylib::Rectangle> body;
+  SNAKE_DIRECTIONS direction = SNAKE_DIRECTIONS::RIGHT; 
 
 public:
   Player();
   void drawSnake();
   void moveSnake(float *dT);
   void changeDirection(SNAKE_DIRECTIONS direction);
-  raylib::Rectangle getSnakeShape();
+  void createSnakeBody();
+
+  raylib::Rectangle getHead() const{
+    return body.front();
+  }
+  bool checkSelfCollision() const;
 };
 class Fruit {
 private:
@@ -44,4 +47,5 @@ public:
   Fruit();
   void drawFruit();
   void detectCollision(Player *snake);
+  void spawnFruitRandom();
 };
