@@ -69,6 +69,13 @@ bool Player::checkWallCollision() const {
     return false;
 }
 
+void Player::reset() {
+    body.clear();
+    body.push_back(raylib::Rectangle(100.0f, 100.0f, Snake::width, Snake::height));
+    direction = SNAKE_DIRECTIONS::RIGHT;
+    segmentsToAdd = 0;
+}
+
 // -----------------------------------------------
 Fruit::Fruit()
     : fruit_shape((float)config::SCREEN_W / 2, (float)config::SCREEN_H / 2,

@@ -10,4 +10,5 @@ public:
   void GameLoop(Player *snake, Fruit *apple);
   void inputHandiling(Player *snake);
   void UpdateDraw(Player *snake, Fruit *apple);
+  void DrawGameOver(int finalScore);
 };

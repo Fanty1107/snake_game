@@ -36,6 +36,9 @@ public:
   void changeDirection(SNAKE_DIRECTIONS direction);
   void createSnakeBody();
 
+  void reset();
+  int getScore() const { return (int)body.size() - 1; }
+
   bool checkWallCollision() const;
 
   raylib::Rectangle getHead() const{
