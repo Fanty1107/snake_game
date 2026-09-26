@@ -5,13 +5,19 @@
 Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "Snake Game") {
   window.SetConfigFlags(FLAG_WINDOW_RESIZABLE);
   window.SetPosition(100, 100);
+  window.SetTargetFPS(120);
 }
 void Game::GameLoop(Player *snake, Fruit *apple) {
   while (!window.ShouldClose()) {
     float deltaTime = window.GetFrameTime();
+
     snake->moveSnake(&deltaTime);
     inputHandiling(snake);
     apple->detectCollision(snake);
+
+    if (snake->checkSelfCollision() || snake->checkWallCollision()) {
+      break;
+    }
     while (window.Drawing()) {
       UpdateDraw(snake, apple);
     }

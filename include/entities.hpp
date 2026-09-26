@@ -12,20 +12,22 @@ enum SNAKE_DIRECTIONS {
 };
 
 namespace Snake {
-constexpr float width = 75.0f;
+constexpr float width = 50.0f;
 constexpr float height = 50.0f;
 constexpr raylib::Color color{GREEN};
-constexpr float speed = 200.0f;
+constexpr float speed = 100.0f;
 } // namespace Snake
 namespace Apple {
 constexpr float width = 20.0f;
-constexpr float height = 35.0f;
+constexpr float height = 20.0f;
 constexpr raylib::Color color{RED};
 } // namespace Apple
 class Player {
 private:
   std::vector<raylib::Rectangle> body;
   SNAKE_DIRECTIONS direction = SNAKE_DIRECTIONS::RIGHT; 
+  SNAKE_DIRECTIONS lastMoveDirection = SNAKE_DIRECTIONS::RIGHT;
+  int segmentsToAdd = 0;
 
 public:
   Player();
@@ -33,6 +35,8 @@ public:
   void moveSnake(float *dT);
   void changeDirection(SNAKE_DIRECTIONS direction);
   void createSnakeBody();
+
+  bool checkWallCollision() const;
 
   raylib::Rectangle getHead() const{
     return body.front();
