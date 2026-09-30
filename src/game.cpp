@@ -1,7 +1,6 @@
 #include "../include/game.hpp"
 #include "../include/config.hpp"
-#include "../include/entities.hpp"
-#include "raylib.h"
+#include "../include/player.hpp"
 #include <string>
 
 Game::Game() : window(config::SCREEN_W, config::SCREEN_H, "Snake Game") {

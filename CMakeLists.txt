@@ -30,7 +30,7 @@ if (NOT raylib_cpp_FOUND)
 endif()
 
 # This is the main part:
-set(SOURCES src/main.cpp src/game.cpp src/entities.cpp)
+set(SOURCES src/main.cpp src/game.cpp src/player.cpp src/fruit.cpp)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 add_executable(${PROJECT_NAME} ${SOURCES})
 set_target_properties(${PROJECT_NAME} PROPERTIES CXX_STANDARD 11)

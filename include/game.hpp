@@ -1,5 +1,6 @@
 #pragma once
-#include "entities.hpp"
+#include "../include/player.hpp"
+#include "../include/fruit.hpp"
 
 class Game {
 private:

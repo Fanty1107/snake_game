@@ -1,8 +1,6 @@
 #pragma once
-#include "Color.hpp"
-#include "Rectangle.hpp"
 #include "raylib-cpp.hpp"
-#include <vector>
+
 
 enum SNAKE_DIRECTIONS {
   RIGHT = 0,
@@ -17,11 +15,7 @@ constexpr float height = 50.0f;
 constexpr raylib::Color color{GREEN};
 constexpr float speed = 100.0f;
 } // namespace Snake
-namespace Apple {
-constexpr float width = 20.0f;
-constexpr float height = 20.0f;
-constexpr raylib::Color color{RED};
-} // namespace Apple
+
 class Player {
 private:
   std::vector<raylib::Rectangle> body;
@@ -45,14 +39,4 @@ public:
     return body.front();
   }
   bool checkSelfCollision() const;
-};
-class Fruit {
-private:
-  raylib::Rectangle fruit_shape;
-
-public:
-  Fruit();
-  void drawFruit();
-  void detectCollision(Player *snake);
-  void spawnFruitRandom();
 };
